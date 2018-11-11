@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -57,11 +57,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="smackBurger"/>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jKD-U5-6wJ">
+                                <rect key="frame" x="0.0" y="49" width="414" height="808"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="0.61568627450000002" green="0.67450980390000004" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jKD-U5-6wJ" firstAttribute="leading" secondItem="7W9-Ri-6JA" secondAttribute="leading" id="6B4-R1-cSh"/>
+                            <constraint firstItem="jKD-U5-6wJ" firstAttribute="top" secondItem="7W9-Ri-6JA" secondAttribute="top" constant="5" id="OO4-TH-mYe"/>
+                            <constraint firstItem="7W9-Ri-6JA" firstAttribute="trailing" secondItem="jKD-U5-6wJ" secondAttribute="trailing" id="k1F-k3-6iS"/>
+                            <constraint firstItem="7W9-Ri-6JA" firstAttribute="bottom" secondItem="jKD-U5-6wJ" secondAttribute="bottom" constant="5" id="kL6-lq-Hpl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7W9-Ri-6JA"/>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="jKD-U5-6wJ" id="RNq-bU-rzT"/>
                         <outlet property="menuBtn" destination="1Q1-67-9Lk" id="qav-Bu-Tmm"/>
                     </connections>
                 </viewController>
