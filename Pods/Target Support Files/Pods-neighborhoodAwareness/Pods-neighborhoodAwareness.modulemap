@@ -1,0 +1,6 @@
+framework module Pods_neighborhoodAwareness {
+  umbrella header "Pods-neighborhoodAwareness-umbrella.h"
+
+  export *
+  module * { export * }
+}
