@@ -11,7 +11,6 @@ import Alamofire
 
 class SearchViewController: UIViewController {
 
-    
     @IBOutlet weak var jurisdictionText: UITextField!
     @IBOutlet weak var boroughText: UITextField!
     @IBOutlet weak var crimeText: UITextField!
@@ -20,7 +19,8 @@ class SearchViewController: UIViewController {
     var crimes: [Crime] = []//contains all or filter movies with searchBar
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print("in search vc")
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
     }
     
@@ -59,6 +59,12 @@ class SearchViewController: UIViewController {
                 print("my json")
                 print(Crime.printAllCrimes(crimes: crimes))
                 print("Crimes count: \(crimes.count)")
+                
+                DispatchQueue.main.async {
+                    let mapVC = MapViewController(nibName: "MapViewController", bundle: nil)
+                    mapVC.getCrimeAfterSearch(send: self.crimes)
+                }
+            
             } else {
                 
                 print("could not download crimes!")

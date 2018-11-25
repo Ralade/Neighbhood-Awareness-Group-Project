@@ -63,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				055002AE21A38B3A008B3E06 /* Crime.swift */,
-				055002B021A39F93008B3E06 /* CrimeAPIManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -93,6 +92,7 @@
 				F72ED53121896B36000DBF7E /* Controllers */,
 				F72ED52C21896914000DBF7E /* Supporting Files */,
 				1D1C3A1F21663F3700E9186A /* AppDelegate.swift */,
+				055002B021A39F93008B3E06 /* CrimeAPIManager.swift */,
 				1D1C3A2321663F3700E9186A /* Main.storyboard */,
 				1D1C3A2621663F3800E9186A /* Assets.xcassets */,
 				1D1C3A2821663F3800E9186A /* LaunchScreen.storyboard */,
