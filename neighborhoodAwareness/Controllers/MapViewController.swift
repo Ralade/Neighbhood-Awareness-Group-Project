@@ -77,10 +77,39 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
     }*/
 
-    func getCrimeAfterSearch(send: [Crime]) {
-        self.crimes = send
-        for crime in crimes {
-            print(crime.crime)
+    func addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2D, crimeTitle: String) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        annotation.title = crimeTitle
+        mapView.addAnnotation(annotation)
+    }
+    
+    /*func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let identifier = "customAnnotationView"
+        
+        guard !(annotation is MKUserLocation) else {
+            return nil
         }
+        
+        // var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        // custom image annotation
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        if (annotationView == nil) {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        else {
+            annotationView!.annotation = annotation
+        }
+        
+        return annotationView
+    }*/
+    
+    func getCrimeAfterSearch(searchedCrimes: [Crime]) {
+        for crime in searchedCrimes {
+            addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2DMake(crime.lat, crime.lon), crimeTitle: crime.crime)
+        }
+        print("done")
     }
 }

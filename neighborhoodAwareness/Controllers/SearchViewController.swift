@@ -61,8 +61,13 @@ class SearchViewController: UIViewController {
                 print("Crimes count: \(crimes.count)")
                 
                 DispatchQueue.main.async {
-                    let mapVC = MapViewController(nibName: "MapViewController", bundle: nil)
-                    mapVC.getCrimeAfterSearch(send: self.crimes)
+                    
+                    //self.navigationController?.pushViewController(mapVC, animated: true)
+                    let mapVC = self.revealViewController()?.frontViewController as! MapViewController
+                    self.revealViewController()?.pushFrontViewController(mapVC, animated: true)
+
+                    mapVC.getCrimeAfterSearch(searchedCrimes: self.crimes)
+                    
                 }
             
             } else {
