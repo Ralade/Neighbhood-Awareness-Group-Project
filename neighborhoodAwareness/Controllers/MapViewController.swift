@@ -84,7 +84,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.addAnnotation(annotation)
     }
     
-    /*func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let identifier = "customAnnotationView"
         
@@ -95,21 +95,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
         // custom image annotation
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
         if (annotationView == nil) {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
         }
         else {
             annotationView!.annotation = annotation
         }
         
         return annotationView
-    }*/
+    }
     
     func getCrimeAfterSearch(searchedCrimes: [Crime]) {
         for crime in searchedCrimes {
             addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2DMake(crime.lat, crime.lon), crimeTitle: crime.crime)
         }
-        print("done")
     }
 }
