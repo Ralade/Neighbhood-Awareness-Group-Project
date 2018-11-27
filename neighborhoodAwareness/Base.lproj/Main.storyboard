@@ -220,9 +220,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyP-lr-9Gr">
+                                <rect key="frame" x="5" y="238" width="404" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Report Similar Crime"/>
+                                <connections>
+                                    <segue destination="LxP-yR-ejO" kind="presentation" id="UEA-jg-z5b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="iyP-lr-9Gr" firstAttribute="top" secondItem="98d-pe-5MT" secondAttribute="bottom" constant="10" id="592-hm-aHF"/>
                             <constraint firstItem="oHI-1B-M23" firstAttribute="trailing" secondItem="CXS-9P-Zc0" secondAttribute="trailing" constant="5" id="6IZ-uy-6pg"/>
                             <constraint firstItem="CXS-9P-Zc0" firstAttribute="leading" secondItem="oHI-1B-M23" secondAttribute="leading" constant="5" id="B2T-Dq-Yta"/>
                             <constraint firstItem="98d-pe-5MT" firstAttribute="top" secondItem="O6N-EI-SYH" secondAttribute="bottom" constant="5" id="GuZ-XF-JxZ"/>
@@ -230,7 +239,9 @@
                             <constraint firstItem="eh3-Ed-AjF" firstAttribute="leading" secondItem="oHI-1B-M23" secondAttribute="leading" constant="5" id="VIp-KR-UcQ"/>
                             <constraint firstItem="CXS-9P-Zc0" firstAttribute="top" secondItem="oHI-1B-M23" secondAttribute="top" constant="5" id="cZD-vo-V8Y"/>
                             <constraint firstItem="oHI-1B-M23" firstAttribute="trailing" secondItem="O6N-EI-SYH" secondAttribute="trailing" constant="5" id="e6w-og-CPT"/>
+                            <constraint firstItem="iyP-lr-9Gr" firstAttribute="leading" secondItem="oHI-1B-M23" secondAttribute="leading" constant="5" id="eRM-YH-AgY"/>
                             <constraint firstItem="eh3-Ed-AjF" firstAttribute="top" secondItem="CXS-9P-Zc0" secondAttribute="bottom" constant="5" id="jn1-De-j7x"/>
+                            <constraint firstItem="oHI-1B-M23" firstAttribute="trailing" secondItem="iyP-lr-9Gr" secondAttribute="trailing" constant="5" id="kYG-V7-cq5"/>
                             <constraint firstItem="oHI-1B-M23" firstAttribute="trailing" secondItem="98d-pe-5MT" secondAttribute="trailing" constant="5" id="vOp-zr-Y2s"/>
                             <constraint firstItem="O6N-EI-SYH" firstAttribute="top" secondItem="eh3-Ed-AjF" secondAttribute="bottom" constant="5" id="vmI-EE-hao"/>
                             <constraint firstItem="98d-pe-5MT" firstAttribute="leading" secondItem="oHI-1B-M23" secondAttribute="leading" constant="5" id="xFc-K1-jf1"/>
@@ -248,6 +259,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3tS-yX-1S6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3444.9275362318845" y="500.89285714285711"/>
+        </scene>
+        <!--Report Crime View Controller-->
+        <scene sceneID="zbD-g7-I7T">
+            <objects>
+                <viewController id="LxP-yR-ejO" customClass="ReportCrimeViewController" customModule="neighborhoodAwareness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ASj-Qc-Jom">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TDz-5H-6qg">
+                                <rect key="frame" x="10" y="54" width="394" height="409"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bgb-E7-2jV">
+                                <rect key="frame" x="10" y="473" width="87" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Report"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSG-6t-A8n">
+                                <rect key="frame" x="313" y="473" width="91" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Cancel"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TDz-5H-6qg" firstAttribute="top" secondItem="vl0-DR-egp" secondAttribute="top" constant="10" id="0cb-hu-54i"/>
+                            <constraint firstItem="Bgb-E7-2jV" firstAttribute="leading" secondItem="vl0-DR-egp" secondAttribute="leading" constant="10" id="1bF-cI-gAf"/>
+                            <constraint firstItem="vl0-DR-egp" firstAttribute="trailing" secondItem="TDz-5H-6qg" secondAttribute="trailing" constant="10" id="23g-9W-cUY"/>
+                            <constraint firstItem="NSG-6t-A8n" firstAttribute="top" secondItem="TDz-5H-6qg" secondAttribute="bottom" constant="10" id="CMy-iI-6Zr"/>
+                            <constraint firstItem="TDz-5H-6qg" firstAttribute="leading" secondItem="vl0-DR-egp" secondAttribute="leading" constant="10" id="XGP-h8-DR1"/>
+                            <constraint firstItem="vl0-DR-egp" firstAttribute="trailing" secondItem="NSG-6t-A8n" secondAttribute="trailing" constant="10" id="YIN-Ns-F72"/>
+                            <constraint firstItem="TDz-5H-6qg" firstAttribute="height" secondItem="vl0-DR-egp" secondAttribute="height" multiplier="1:2" id="amB-b2-lUS"/>
+                            <constraint firstItem="Bgb-E7-2jV" firstAttribute="top" secondItem="TDz-5H-6qg" secondAttribute="bottom" constant="10" id="nsH-xl-4pC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vl0-DR-egp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xgz-J6-XCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4514" y="501"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Id1-nF-Cdz">

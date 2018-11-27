@@ -1,5 +1,5 @@
 //
-//  DetailsCrimeViewController.swift
+//  ReportCrimeViewController.swift
 //  neighborhoodAwareness
 //
 //  Created by Kun Huang on 11/26/18.
@@ -8,24 +8,12 @@
 
 import UIKit
 
-class DetailsCrimeViewController: UIViewController {
+class ReportCrimeViewController: UIViewController {
 
-    @IBOutlet weak var crimeOffenseLabel: UILabel!
-    @IBOutlet weak var boroughLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var jurisdictionLabel: UILabel!
-    
-    var crimeDetails: Crime?
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        crimeOffenseLabel.text = crimeDetails?.crime
-        boroughLabel.text = crimeDetails?.borough
-        dateLabel.text = crimeDetails?.date
-        jurisdictionLabel.text = crimeDetails?.jurisdiction
-        
+        // Do any additional setup after loading the view.
     }
     
 
