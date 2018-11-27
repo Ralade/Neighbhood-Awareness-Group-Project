@@ -8,15 +8,18 @@
 
 import UIKit
 
-class ReportCrimeViewController: UIViewController {
+class ReportCrimeViewController: UIViewController, UITextViewDelegate {
 
     
     @IBOutlet weak var reportCrimeBox: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        reportCrimeBox.delegate = self
 
-        // Do any additional setup after loading the view.
+        reportCrimeBox.text = "Crime description.."
+        reportCrimeBox.textColor = UIColor.lightGray
     }
     
     @IBAction func reportCrime(_ sender: UIButton) {
@@ -25,6 +28,13 @@ class ReportCrimeViewController: UIViewController {
     
     @IBAction func cancelReport(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
     }
     
     /*
