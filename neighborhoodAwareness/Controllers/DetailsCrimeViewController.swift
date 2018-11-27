@@ -15,11 +15,16 @@ class DetailsCrimeViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var jurisdictionLabel: UILabel!
     
+    var crimeDetails: Crime?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        crimeOffenseLabel.text = crimeDetails?.crime
+        boroughLabel.text = crimeDetails?.borough
+        dateLabel.text = crimeDetails?.date
+        jurisdictionLabel.text = crimeDetails?.jurisdiction
     }
     
 

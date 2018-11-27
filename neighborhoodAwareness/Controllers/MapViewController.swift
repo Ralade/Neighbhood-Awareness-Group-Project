@@ -15,6 +15,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     var crimes: [Crime] = []
+    var crimeLat: Double?
+    var crimeLong: Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,12 +111,30 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        //selectedCrime =
         performSegue(withIdentifier: "detailCrime", sender: self)
     }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        crimeLat = view.annotation?.coordinate.latitude
+        crimeLong = view.annotation?.coordinate.longitude
+    }
+    
     func getCrimeAfterSearch(searchedCrimes: [Crime]) {
+        self.crimes = searchedCrimes
         for crime in searchedCrimes {
             addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2DMake(crime.lat, crime.lon), crimeTitle: crime.crime)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailCrime" {
+            let destinationVC = segue.destination as! DetailsCrimeViewController
+            for crime in crimes {
+                if crime.lat == crimeLat && crimeLong == crime.lon {
+                    destinationVC.crimeDetails = crime
+                }
+            }
         }
     }
 }
