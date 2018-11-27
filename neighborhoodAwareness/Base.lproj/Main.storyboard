@@ -279,11 +279,17 @@
                                 <rect key="frame" x="10" y="473" width="87" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Report"/>
+                                <connections>
+                                    <action selector="reportCrime:" destination="LxP-yR-ejO" eventType="touchUpInside" id="yJO-RE-Prd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSG-6t-A8n">
                                 <rect key="frame" x="313" y="473" width="91" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelReport:" destination="LxP-yR-ejO" eventType="touchUpInside" id="8Uj-IE-cAW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -299,6 +305,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vl0-DR-egp"/>
                     </view>
+                    <connections>
+                        <outlet property="reportCrimeBox" destination="TDz-5H-6qg" id="qeK-b5-6fP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgz-J6-XCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

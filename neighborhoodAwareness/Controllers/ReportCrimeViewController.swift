@@ -10,13 +10,23 @@ import UIKit
 
 class ReportCrimeViewController: UIViewController {
 
+    
+    @IBOutlet weak var reportCrimeBox: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func reportCrime(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func cancelReport(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
