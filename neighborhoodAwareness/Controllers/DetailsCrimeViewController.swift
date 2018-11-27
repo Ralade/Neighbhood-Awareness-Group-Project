@@ -10,6 +10,12 @@ import UIKit
 
 class DetailsCrimeViewController: UIViewController {
 
+    @IBOutlet weak var crimeOffenseLabel: UILabel!
+    @IBOutlet weak var boroughLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var jurisdictionLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

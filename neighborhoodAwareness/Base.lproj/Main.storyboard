@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reveal View Controller-->
+        <!--Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SWRevealViewController" sceneMemberID="viewController">
@@ -20,7 +20,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="X5h-GC-NaF"/>
+                    <navigationItem key="navigationItem" title="Map" id="X5h-GC-NaF"/>
                     <connections>
                         <segue destination="kju-UN-rXr" kind="show" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="1dU-HX-Qa1"/>
                         <segue destination="EPy-8N-vy6" kind="show" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="iJW-a3-6yG"/>
@@ -195,9 +195,55 @@
                     <view key="view" contentMode="scaleToFill" id="dr2-iQ-brC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crime" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXS-9P-Zc0">
+                                <rect key="frame" x="5" y="93" width="404" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borough" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh3-Ed-AjF">
+                                <rect key="frame" x="5" y="128" width="404" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6N-EI-SYH">
+                                <rect key="frame" x="5" y="163" width="404" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="jurisdiction" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98d-pe-5MT">
+                                <rect key="frame" x="5" y="198" width="404" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oHI-1B-M23" firstAttribute="trailing" secondItem="CXS-9P-Zc0" secondAttribute="trailing" constant="5" id="6IZ-uy-6pg"/>
+                            <constraint firstItem="CXS-9P-Zc0" firstAttribute="leading" secondItem="oHI-1B-M23" secondAttribute="leading" constant="5" id="B2T-Dq-Yta"/>
+                            <constraint firstItem="98d-pe-5MT" firstAttribute="top" secondItem="O6N-EI-SYH" secondAttribute="bottom" constant="5" id="GuZ-XF-JxZ"/>
+                            <constraint firstItem="O6N-EI-SYH" firstAttribute="leading" secondItem="oHI-1B-M23" secondAttribute="leading" constant="5" id="HTX-Ph-npe"/>
+                            <constraint firstItem="eh3-Ed-AjF" firstAttribute="leading" secondItem="oHI-1B-M23" secondAttribute="leading" constant="5" id="VIp-KR-UcQ"/>
+                            <constraint firstItem="CXS-9P-Zc0" firstAttribute="top" secondItem="oHI-1B-M23" secondAttribute="top" constant="5" id="cZD-vo-V8Y"/>
+                            <constraint firstItem="oHI-1B-M23" firstAttribute="trailing" secondItem="O6N-EI-SYH" secondAttribute="trailing" constant="5" id="e6w-og-CPT"/>
+                            <constraint firstItem="eh3-Ed-AjF" firstAttribute="top" secondItem="CXS-9P-Zc0" secondAttribute="bottom" constant="5" id="jn1-De-j7x"/>
+                            <constraint firstItem="oHI-1B-M23" firstAttribute="trailing" secondItem="98d-pe-5MT" secondAttribute="trailing" constant="5" id="vOp-zr-Y2s"/>
+                            <constraint firstItem="O6N-EI-SYH" firstAttribute="top" secondItem="eh3-Ed-AjF" secondAttribute="bottom" constant="5" id="vmI-EE-hao"/>
+                            <constraint firstItem="98d-pe-5MT" firstAttribute="leading" secondItem="oHI-1B-M23" secondAttribute="leading" constant="5" id="xFc-K1-jf1"/>
+                            <constraint firstItem="oHI-1B-M23" firstAttribute="trailing" secondItem="eh3-Ed-AjF" secondAttribute="trailing" constant="5" id="xp0-WK-5s2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oHI-1B-M23"/>
                     </view>
+                    <connections>
+                        <outlet property="boroughLabel" destination="eh3-Ed-AjF" id="ccS-Y9-4FG"/>
+                        <outlet property="crimeOffenseLabel" destination="CXS-9P-Zc0" id="3PM-3Q-xMw"/>
+                        <outlet property="dateLabel" destination="O6N-EI-SYH" id="X58-8k-5mr"/>
+                        <outlet property="jurisdictionLabel" destination="98d-pe-5MT" id="gty-wv-Xq5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3tS-yX-1S6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -30,7 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         //locationManager.requestWhenInUseAuthorization()
         let locationCenter = CLLocationCoordinate2DMake(40.73061, -73.935242)
-        let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: locationCenter, span: span)
         mapView.setRegion(region, animated: false)
         
