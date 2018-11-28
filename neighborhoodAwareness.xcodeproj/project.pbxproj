@@ -11,6 +11,7 @@
 		055002B121A39F93008B3E06 /* CrimeAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055002B021A39F93008B3E06 /* CrimeAPIManager.swift */; };
 		0DE3BB8121ACE8D800BBCBE2 /* DetailsCrimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3BB8021ACE8D800BBCBE2 /* DetailsCrimeViewController.swift */; };
 		0DE3BB8321ACF9C600BBCBE2 /* ReportCrimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3BB8221ACF9C600BBCBE2 /* ReportCrimeViewController.swift */; };
+		0DE3BB8621AE509D00BBCBE2 /* ReportCrimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3BB8521AE509D00BBCBE2 /* ReportCrimeCell.swift */; };
 		1D1C3A2021663F3700E9186A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1C3A1F21663F3700E9186A /* AppDelegate.swift */; };
 		1D1C3A2521663F3700E9186A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D1C3A2321663F3700E9186A /* Main.storyboard */; };
 		1D1C3A2721663F3800E9186A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D1C3A2621663F3800E9186A /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		055002B021A39F93008B3E06 /* CrimeAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrimeAPIManager.swift; sourceTree = "<group>"; };
 		0DE3BB8021ACE8D800BBCBE2 /* DetailsCrimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCrimeViewController.swift; sourceTree = "<group>"; };
 		0DE3BB8221ACF9C600BBCBE2 /* ReportCrimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCrimeViewController.swift; sourceTree = "<group>"; };
+		0DE3BB8521AE509D00BBCBE2 /* ReportCrimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCrimeCell.swift; sourceTree = "<group>"; };
 		1D1C3A1C21663F3700E9186A /* neighborhoodAwareness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = neighborhoodAwareness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D1C3A1F21663F3700E9186A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D1C3A2421663F3700E9186A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		0DE3BB8421AE506300BBCBE2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0DE3BB8521AE509D00BBCBE2 /* ReportCrimeCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1D1C3A1321663F3700E9186A = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 				055002AD21A38B1C008B3E06 /* Models */,
 				F72ED53121896B36000DBF7E /* Controllers */,
 				F72ED52C21896914000DBF7E /* Supporting Files */,
+				0DE3BB8421AE506300BBCBE2 /* View */,
 				1D1C3A1F21663F3700E9186A /* AppDelegate.swift */,
 				055002B021A39F93008B3E06 /* CrimeAPIManager.swift */,
 				1D1C3A2321663F3700E9186A /* Main.storyboard */,
@@ -263,6 +274,7 @@
 				055002B121A39F93008B3E06 /* CrimeAPIManager.swift in Sources */,
 				F72ED53721896BB0000DBF7E /* SearchViewController.swift in Sources */,
 				0DE3BB8321ACF9C600BBCBE2 /* ReportCrimeViewController.swift in Sources */,
+				0DE3BB8621AE509D00BBCBE2 /* ReportCrimeCell.swift in Sources */,
 				0DE3BB8121ACE8D800BBCBE2 /* DetailsCrimeViewController.swift in Sources */,
 				F78B5418218BEAE400A88EC2 /* SWRevealViewController.m in Sources */,
 			);
