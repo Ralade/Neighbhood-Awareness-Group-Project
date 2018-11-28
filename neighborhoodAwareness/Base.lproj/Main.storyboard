@@ -289,6 +289,7 @@
                         <outlet property="crimeOffenseLabel" destination="CXS-9P-Zc0" id="3PM-3Q-xMw"/>
                         <outlet property="dateLabel" destination="O6N-EI-SYH" id="X58-8k-5mr"/>
                         <outlet property="jurisdictionLabel" destination="98d-pe-5MT" id="gty-wv-Xq5"/>
+                        <outlet property="tableView" destination="iP3-Br-JFB" id="cLI-jU-Y3c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3tS-yX-1S6" userLabel="First Responder" sceneMemberID="firstResponder"/>
