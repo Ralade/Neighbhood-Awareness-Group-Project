@@ -8,15 +8,17 @@
 
 import UIKit
 
-class ReportCrimeViewController: UIViewController, UITextViewDelegate {
+class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     @IBOutlet weak var reportCrimeBox: UITextView!
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         reportCrimeBox.delegate = self
+        imagePicker.delegate = self
 
         reportCrimeBox.text = "Crime description.."
         reportCrimeBox.textColor = UIColor.lightGray
