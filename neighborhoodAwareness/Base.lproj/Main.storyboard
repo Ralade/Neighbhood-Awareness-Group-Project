@@ -225,7 +225,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Report Similar Crime"/>
                                 <connections>
-                                    <segue destination="LxP-yR-ejO" kind="presentation" id="UEA-jg-z5b"/>
+                                    <segue destination="LxP-yR-ejO" kind="presentation" identifier="reportCrime" id="UEA-jg-z5b"/>
                                 </connections>
                             </button>
                         </subviews>

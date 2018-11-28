@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol ReportCrimeDelegate: class {
+    func didReportCrime(report: String)
+}
+
 class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     @IBOutlet weak var reportCrimeBox: UITextView!
     let imagePicker = UIImagePickerController()
+    weak var reportCrimeDelegate: ReportCrimeDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +31,8 @@ class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePi
     
     @IBAction func reportCrime(_ sender: UIButton) {
         
+        reportCrimeDelegate!.didReportCrime(report: reportCrimeBox.text)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelReport(_ sender: UIButton) {
