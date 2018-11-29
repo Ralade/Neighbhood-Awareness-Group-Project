@@ -24,7 +24,6 @@ class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePi
         super.viewDidLoad()
         
         reportCrimeBox.delegate = self
-        imagePicker.delegate = self
 
         reportCrimeBox.text = "Crime description.."
         reportCrimeBox.textColor = UIColor.lightGray
@@ -52,6 +51,7 @@ class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePi
     }
     func getPicture() {
         
+        imagePicker.delegate = self
         imagePicker.allowsEditing = true
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -68,6 +68,21 @@ class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePi
             takenPicture = image
         }
         imagePicker.dismiss(animated: true, completion: nil)
+        
+        var attString: NSMutableAttributedString!
+        attString = NSMutableAttributedString(attributedString: reportCrimeBox!.attributedText)
+        let textAttach = NSTextAttachment()
+        textAttach.image = takenPicture
+        
+        let oldWidth = textAttach.image!.size.width;
+        
+        let scaleFactor = oldWidth / (reportCrimeBox.frame.size.width - 10);
+        textAttach.image = UIImage(cgImage: (textAttach.image?.cgImage)!, scale: scaleFactor, orientation: .up)
+        
+        let attStringWithImage = NSAttributedString(attachment: textAttach)
+        
+        attString.append(attStringWithImage)
+        reportCrimeBox.attributedText = attString
     }
     /*
     // MARK: - Navigation
