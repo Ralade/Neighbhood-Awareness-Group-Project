@@ -47,6 +47,9 @@ class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePi
         }
     }
     
+    @IBAction func attachPictureOrVideo(_ sender: UIButton) {
+        
+    }
     func getCamera() {
         
         imagePicker.delegate = self

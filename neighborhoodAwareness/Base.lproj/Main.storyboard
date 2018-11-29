@@ -327,13 +327,22 @@
                                     <action selector="cancelReport:" destination="LxP-yR-ejO" eventType="touchUpInside" id="8Uj-IE-cAW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yX4-MB-di2">
+                                <rect key="frame" x="324" y="433" width="80" height="30"/>
+                                <state key="normal" title="Add picture"/>
+                                <connections>
+                                    <action selector="attachPictureOrVideo:" destination="LxP-yR-ejO" eventType="touchUpInside" id="8H9-tS-aKp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TDz-5H-6qg" firstAttribute="top" secondItem="vl0-DR-egp" secondAttribute="top" constant="10" id="0cb-hu-54i"/>
                             <constraint firstItem="Bgb-E7-2jV" firstAttribute="leading" secondItem="vl0-DR-egp" secondAttribute="leading" constant="10" id="1bF-cI-gAf"/>
                             <constraint firstItem="vl0-DR-egp" firstAttribute="trailing" secondItem="TDz-5H-6qg" secondAttribute="trailing" constant="10" id="23g-9W-cUY"/>
+                            <constraint firstItem="NSG-6t-A8n" firstAttribute="top" secondItem="yX4-MB-di2" secondAttribute="bottom" constant="10" id="Bdr-P8-T07"/>
                             <constraint firstItem="NSG-6t-A8n" firstAttribute="top" secondItem="TDz-5H-6qg" secondAttribute="bottom" constant="10" id="CMy-iI-6Zr"/>
+                            <constraint firstItem="vl0-DR-egp" firstAttribute="trailing" secondItem="yX4-MB-di2" secondAttribute="trailing" constant="10" id="MXL-2R-prL"/>
                             <constraint firstItem="TDz-5H-6qg" firstAttribute="leading" secondItem="vl0-DR-egp" secondAttribute="leading" constant="10" id="XGP-h8-DR1"/>
                             <constraint firstItem="vl0-DR-egp" firstAttribute="trailing" secondItem="NSG-6t-A8n" secondAttribute="trailing" constant="10" id="YIN-Ns-F72"/>
                             <constraint firstItem="TDz-5H-6qg" firstAttribute="height" secondItem="vl0-DR-egp" secondAttribute="height" multiplier="1:2" id="amB-b2-lUS"/>
