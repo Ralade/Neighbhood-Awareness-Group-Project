@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ReportCrimeDelegate: class {
-    func didReportCrime(report: String)
+    func didReportCrime(report: NSAttributedString)
 }
 
 class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -31,7 +31,7 @@ class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePi
     
     @IBAction func reportCrime(_ sender: UIButton) {
         
-        reportCrimeDelegate!.didReportCrime(report: reportCrimeBox.text)
+        reportCrimeDelegate!.didReportCrime(report: reportCrimeBox.attributedText)
         dismiss(animated: true, completion: nil)
     }
     
@@ -76,7 +76,7 @@ class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePi
         
         let oldWidth = textAttach.image!.size.width;
         
-        let scaleFactor = oldWidth / (reportCrimeBox.frame.size.width - 10);
+        let scaleFactor = oldWidth / (reportCrimeBox.frame.size.width/2);
         textAttach.image = UIImage(cgImage: (textAttach.image?.cgImage)!, scale: scaleFactor, orientation: .up)
         
         let attStringWithImage = NSAttributedString(attachment: textAttach)

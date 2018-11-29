@@ -16,7 +16,8 @@ class DetailsCrimeViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var jurisdictionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var crimeDetails: Crime?
-    var crimeDescription: [String] = []
+    var crimeDescription: [NSAttributedString] = []
+    var takenPicture: UIImage?
     
     
     override func viewDidLoad() {
@@ -45,7 +46,16 @@ class DetailsCrimeViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportCrimeCell", for: indexPath) as! ReportCrimeCell
         
-        cell.crimeDescriptionLabel.text = crimeDescription[indexPath.row]
+        //let stringWithImage = crimeDescription[indexPath.row]
+        
+        /*var attachment = NSTextAttachment()
+        attachment.image = stringWithImage.image
+        var attachmentString = NSAttributedString(attachment: attachment)
+        var myString = NSMutableAttributedString(string: labelString)
+        myString.appendAttributedString(attachmentString)
+        uiLabel.attributedText = myString*/
+        
+        cell.crimeDescriptionLabel.attributedText = crimeDescription[indexPath.row]
         
         return cell
     }
@@ -53,7 +63,7 @@ class DetailsCrimeViewController: UIViewController, UITableViewDataSource, UITab
 }
 
 extension DetailsCrimeViewController: ReportCrimeDelegate {
-    func didReportCrime(report: String) {
+    func didReportCrime(report: NSAttributedString) {
         crimeDescription.append(report)
         tableView.reloadData()
     }
