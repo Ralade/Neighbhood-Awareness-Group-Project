@@ -55,7 +55,6 @@ class DetailsCrimeViewController: UIViewController, UITableViewDataSource, UITab
 extension DetailsCrimeViewController: ReportCrimeDelegate {
     func didReportCrime(report: String) {
         crimeDescription.append(report)
-        print(crimeDescription.count)
         tableView.reloadData()
     }
 }

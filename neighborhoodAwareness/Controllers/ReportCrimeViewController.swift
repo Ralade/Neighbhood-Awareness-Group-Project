@@ -18,6 +18,7 @@ class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePi
     @IBOutlet weak var reportCrimeBox: UITextView!
     let imagePicker = UIImagePickerController()
     weak var reportCrimeDelegate: ReportCrimeDelegate?
+    var takenPicture: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,26 @@ class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePi
         }
     }
     
+    func getCamera() {
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+        } else {
+            imagePicker.sourceType = .photoLibrary
+        }
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            takenPicture = image
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
