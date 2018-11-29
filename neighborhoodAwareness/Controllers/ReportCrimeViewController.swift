@@ -71,6 +71,7 @@ class ReportCrimeViewController: UIViewController, UITextViewDelegate, UIImagePi
         
         var attString: NSMutableAttributedString!
         attString = NSMutableAttributedString(attributedString: reportCrimeBox!.attributedText)
+        attString.append(NSAttributedString(string: "\n"))
         let textAttach = NSTextAttachment()
         textAttach.image = takenPicture
         

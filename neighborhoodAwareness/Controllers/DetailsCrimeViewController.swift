@@ -46,15 +46,6 @@ class DetailsCrimeViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportCrimeCell", for: indexPath) as! ReportCrimeCell
         
-        //let stringWithImage = crimeDescription[indexPath.row]
-        
-        /*var attachment = NSTextAttachment()
-        attachment.image = stringWithImage.image
-        var attachmentString = NSAttributedString(attachment: attachment)
-        var myString = NSMutableAttributedString(string: labelString)
-        myString.appendAttributedString(attachmentString)
-        uiLabel.attributedText = myString*/
-        
         cell.crimeDescriptionLabel.attributedText = crimeDescription[indexPath.row]
         
         return cell
