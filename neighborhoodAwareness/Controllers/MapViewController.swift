@@ -78,6 +78,39 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         
     }*/
+    
+    func getGeoLocation(coordinate: CLLocationCoordinate2D) {
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        geoCoder.reverseGeocodeLocation(location, completionHandler:
+            {
+                placemarks, error -> Void in
+                
+                // Place details
+                guard let placeMark = placemarks!.first else { return }
+                
+                // Location name
+                if let locationName = placeMark.location {
+                    print(locationName)
+                }
+                // Street address
+                if let street = placeMark.thoroughfare {
+                    print(street)
+                }
+                // City
+                if let city = placeMark.subAdministrativeArea {
+                    print(city)
+                }
+                // Zip code
+                if let zip = placeMark.isoCountryCode {
+                    print(zip)
+                }
+                // Country
+                if let country = placeMark.country {
+                    print(country)
+                }
+        })
+    }
 
     func addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2D, crimeTitle: String) {
         let annotation = MKPointAnnotation()
