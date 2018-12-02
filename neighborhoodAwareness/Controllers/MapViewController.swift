@@ -45,6 +45,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         //getCrimeDelegate.getCrimes()
         self.mapView.showsUserLocation = true
         
+        getBoundaries()
+        
+    }
+    
+    func getBoundaries() {
+        CrimeAPIManager().getBoundaries { (crime, error) in
+            print("hello")
+        }
     }
     
     /*func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -60,34 +68,30 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             locationManager.startUpdatingLocation()
         }
     }*/
-
-    /*func createAnnotationOnMap() {
-        //removeAnnotation()
-        if let restaurants = restaurants {
-            for restaurant in restaurants {
-                var image: UIImage?
-                if restaurant.imageURL == nil {
-                    image = UIImage(named: "Food")
-                } else {
-                    if let data = try? Data(contentsOf: restaurant.imageURL!) {
-                        image = UIImage(data: data)
-                    }
-                }
-                addAnnotationAtAddress(address: restaurant.address!, title: restaurant.name!, restImage: image!, rating: restaurant.ratingImage!)
-            }
-        }
-        
-    }*/
     
     func getGeoLocation(coordinate: CLLocationCoordinate2D) {
         let geoCoder = CLGeocoder()
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        geoCoder.reverseGeocodeLocation(location, completionHandler:
-            {
+        geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            if let placeMarks = placemarks {
+                
+                let place = placeMarks.first
+                
+                print(place?.location)
+                print(place?.thoroughfare)
+                print(place?.subThoroughfare)
+                print(place?.isoCountryCode)
+                print(place?.subLocality)
+                print(place?.subAdministrativeArea)
+                
+            }
+        }
+        //geoCoder.reverseGeocodeLocation(location, completionHandler:
+            /*{
                 placemarks, error -> Void in
                 
                 // Place details
-                guard let placeMark = placemarks!.first else { return }
+                guard let placeMark = placemarks else { return }
                 
                 // Location name
                 if let locationName = placeMark.location {
@@ -109,7 +113,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 if let country = placeMark.country {
                     print(country)
                 }
-        })
+        })*/
     }
 
     func addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2D, crimeTitle: String) {
@@ -157,6 +161,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.crimes = searchedCrimes
         for crime in searchedCrimes {
             addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2DMake(crime.lat, crime.lon), crimeTitle: crime.crime)
+            //getGeoLocation(coordinate: CLLocationCoordinate2DMake(crime.lat, crime.lon))
         }
     }
     

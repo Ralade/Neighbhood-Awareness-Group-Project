@@ -56,5 +56,22 @@ class CrimeAPIManager {
         }
         task.resume()
     }
+    
+    func getBoundaries(completion: @escaping ([Crime]?, Error?) -> ()) {
+        
+        //https://nominatim.openstreetmap.org/search.php?q=queens%2C+New+York+&polygon_geojson=1&viewbox=
+        let url = URL(string: "https://nominatim.openstreetmap.org/search.php?q=Queens+New+York&polygon_geojson=1&format=json")!
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! NSArray
+                print(dataDictionary)
+            } else {
+                completion(nil, error)
+            }
+        }
+        task.resume()
+    }
 }
 
