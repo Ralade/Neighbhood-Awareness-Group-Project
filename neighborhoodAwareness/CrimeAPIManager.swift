@@ -65,8 +65,20 @@ class CrimeAPIManager {
         let task = session.dataTask(with: request) { (data, response, error) in
             
             if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! NSArray
-                print(dataDictionary)
+                let dataArray = try! JSONSerialization.jsonObject(with: data, options: []) as! NSArray
+                print(dataArray)
+                let dataDictionary = dataArray[0] as! [String: Any]
+                print("*** \(dataDictionary)")
+                let boundingBox = dataDictionary["boundingbox"] as! NSArray
+                let geoJSON = dataDictionary["geojson"] as! [String: Any]
+                print( "bounding " ,boundingBox)
+                print("geojson " ,geoJSON)
+                let coord = geoJSON["coordinates"] as! NSArray
+                let realCoord = coord[0] as! NSArray
+                for coo in realCoord {
+                    print("hello \(coo)")
+                }
+                
             } else {
                 completion(nil, error)
             }
