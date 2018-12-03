@@ -12,6 +12,5 @@ import MapKit
 class Polygon: MKPolygon {
     
     var name: String?
-    var color: UIColor?
     
 }
