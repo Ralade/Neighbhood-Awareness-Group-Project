@@ -157,25 +157,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             locationManager.startUpdatingLocation()
         }
     }*/
-    
-    func getGeoLocation(coordinate: CLLocationCoordinate2D) {
-        let geoCoder = CLGeocoder()
-        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
-            if let placeMarks = placemarks {
-                
-                let place = placeMarks.first
-                
-                print(place?.location)
-                print(place?.thoroughfare)
-                print(place?.subThoroughfare)
-                print(place?.isoCountryCode)
-                print(place?.subLocality)
-                print(place?.subAdministrativeArea)
-                
-            }
-        }
-    }
 
     func addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2D, crimeTitle: String) {
         let annotation = MKPointAnnotation()
@@ -222,7 +203,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.crimes = searchedCrimes
         for crime in searchedCrimes {
             addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2DMake(crime.lat, crime.lon), crimeTitle: crime.crime)
-            //getGeoLocation(coordinate: CLLocationCoordinate2DMake(crime.lat, crime.lon))
         }
     }
     
