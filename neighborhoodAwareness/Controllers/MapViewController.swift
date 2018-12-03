@@ -67,34 +67,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 }
             }
         }
-        /*CrimeAPIManager().getAllBoroughBoundaries { (boroughArray, error) in
-            if error == nil {
-                self.borough = boroughArray!
-                print(self.borough.count)
-                DispatchQueue.main.async {
-                    self.borough = boroughArray!
-                    print(self.borough.count)
-                    self.addBoundaries()
-                }
-            } else {
-                print("error with \(error?.localizedDescription)")
-            }
-        }*/
-        /*CrimeAPIManager().test { (boundaryArray, error) in
-            if error == nil {
-                for eachBoundary in boundaryArray! {
-                    let eachBound = eachBoundary as! NSArray
-                    let long = eachBound[0] as! Double
-                    let lat = eachBound[1] as! Double
-                    self.boundaries.append(CLLocationCoordinate2DMake(lat, long))
-                }
-                DispatchQueue.main.async {
-                    self.addBoundaries()
-                }
-            } else {
-                print("error with \(error?.localizedDescription)")
-            }
-        }*/
     }
     
     func addBoundaries() {
