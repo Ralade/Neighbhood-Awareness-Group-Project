@@ -17,6 +17,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var crimes: [Crime] = []
     var crimeLat: Double?
     var crimeLong: Double?
+    var boundaries:[CLLocationCoordinate2D] = []
+    var borough: [Borough] = []
+    let boroughName = ["Manhattan", "Queens", "Bronx", "Brooklyn", "Staten+Island"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +35,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         //locationManager.requestWhenInUseAuthorization()
         let locationCenter = CLLocationCoordinate2DMake(40.73061, -73.935242)
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
         let region = MKCoordinateRegion(center: locationCenter, span: span)
         mapView.setRegion(region, animated: false)
         
@@ -50,9 +53,93 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func getBoundaries() {
-        CrimeAPIManager().getBoundaries { (crime, error) in
-            print("hello")
+        
+        for (index, eachBorough) in boroughName.enumerated() {
+            var zeorOrOne = 0
+            if index > 2 {
+                zeorOrOne = 1
+            }
+            CrimeAPIManager().getBoundaries(boroughName: eachBorough, whichIndex: zeorOrOne) { (eachBoro, error) in
+                DispatchQueue.main.async {
+                    self.borough.append(eachBoro!)
+                    print(self.borough.count)
+                    self.addBoundaries()
+                }
+            }
         }
+        /*CrimeAPIManager().getAllBoroughBoundaries { (boroughArray, error) in
+            if error == nil {
+                self.borough = boroughArray!
+                print(self.borough.count)
+                DispatchQueue.main.async {
+                    self.borough = boroughArray!
+                    print(self.borough.count)
+                    self.addBoundaries()
+                }
+            } else {
+                print("error with \(error?.localizedDescription)")
+            }
+        }*/
+        /*CrimeAPIManager().test { (boundaryArray, error) in
+            if error == nil {
+                for eachBoundary in boundaryArray! {
+                    let eachBound = eachBoundary as! NSArray
+                    let long = eachBound[0] as! Double
+                    let lat = eachBound[1] as! Double
+                    self.boundaries.append(CLLocationCoordinate2DMake(lat, long))
+                }
+                DispatchQueue.main.async {
+                    self.addBoundaries()
+                }
+            } else {
+                print("error with \(error?.localizedDescription)")
+            }
+        }*/
+    }
+    
+    func addBoundaries() {
+        for each in borough {
+            let poly = Polygon(coordinates: each.boundaries, count: each.boundaries.count)
+            poly.name = each.boroughName
+            mapView.addOverlay(poly)
+            //mapView.addOverlay(MKPolygon(coordinates: each.boundaries, count: each.boundaries.count))
+        }
+        
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let overlay = overlay as? Polygon {
+            let polyView = MKPolygonRenderer(overlay: overlay)
+            let name = overlay.name!
+            switch name {
+                case "Manhattan":
+                    polyView.strokeColor = UIColor.green
+                    polyView.fillColor = UIColor.green
+                case "Queens":
+                    polyView.strokeColor = UIColor.orange
+                    polyView.fillColor = UIColor.orange
+                case "Bronx":
+                    polyView.strokeColor = UIColor.red
+                    polyView.fillColor = UIColor.red
+                case "Brooklyn":
+                    polyView.strokeColor = UIColor.yellow
+                    polyView.fillColor = UIColor.yellow
+                case "Staten+Island":
+                    polyView.strokeColor = UIColor.purple
+                    polyView.fillColor = UIColor.purple
+                default:
+                    polyView.strokeColor = UIColor.gray
+            }
+            
+            return polyView
+        }
+        if overlay is MKPolygon {
+            let polygonView = MKPolygonRenderer(overlay: overlay)
+            polygonView.strokeColor = UIColor.red
+            return polygonView
+        }
+        
+        return MKPolygonRenderer()
     }
     
     /*func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -86,34 +173,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 
             }
         }
-        //geoCoder.reverseGeocodeLocation(location, completionHandler:
-            /*{
-                placemarks, error -> Void in
-                
-                // Place details
-                guard let placeMark = placemarks else { return }
-                
-                // Location name
-                if let locationName = placeMark.location {
-                    print(locationName)
-                }
-                // Street address
-                if let street = placeMark.thoroughfare {
-                    print(street)
-                }
-                // City
-                if let city = placeMark.subAdministrativeArea {
-                    print(city)
-                }
-                // Zip code
-                if let zip = placeMark.isoCountryCode {
-                    print(zip)
-                }
-                // Country
-                if let country = placeMark.country {
-                    print(country)
-                }
-        })*/
     }
 
     func addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2D, crimeTitle: String) {
