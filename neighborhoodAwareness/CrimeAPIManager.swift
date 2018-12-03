@@ -62,8 +62,9 @@ class CrimeAPIManager {
     
     func getBoundaries(boroughName: String, whichIndex: Int, completion: @escaping (Borough?, Error?) -> ()) {
         
+        //uses openstreetmap api to get boundaries of each borough in nyc
         //https://nominatim.openstreetmap.org/search.php?q=queens%2C+New+York+&polygon_geojson=1&viewbox=
-        print(boroughName)
+        
         let url = URL(string: "https://nominatim.openstreetmap.org/search.php?q=\(boroughName)+New+York&polygon_geojson=1&format=json")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in

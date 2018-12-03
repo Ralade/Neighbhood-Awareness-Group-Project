@@ -108,6 +108,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        //custom polygon
         if let overlay = overlay as? Polygon {
             let polyView = MKPolygonRenderer(overlay: overlay)
             let name = overlay.name!
@@ -133,11 +134,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             return polyView
         }
-        if overlay is MKPolygon {
+        // default polygon
+        /*if overlay is MKPolygon {
             let polygonView = MKPolygonRenderer(overlay: overlay)
             polygonView.strokeColor = UIColor.red
             return polygonView
-        }
+        }*/
         
         return MKPolygonRenderer()
     }
