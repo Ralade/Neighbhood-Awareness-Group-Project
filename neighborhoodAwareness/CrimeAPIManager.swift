@@ -60,31 +60,6 @@ class CrimeAPIManager {
         task.resume()
     }
     
-    func getAllBoroughBoundaries(comletion: @escaping ([Borough]?, Error?) -> ()) {
-        
-        var boroughArray: [Borough] = []
-        
-        for (index, eachBorough) in boroughName.enumerated() {
-            var zeorOrOne = 0
-            if index > 2 {
-                zeorOrOne = 1
-            }
-            getBoundaries(boroughName: eachBorough, whichIndex: zeorOrOne) { (borough, error) in
-                if error == nil {
-                    DispatchQueue.main.async {
-                        boroughArray.append(borough!)
-                    }
-                    //boroughArray.append(borough!)
-                } else {
-                    comletion(nil, error)
-                }
-            }
-        }
-        DispatchQueue.main.async {
-            comletion(boroughArray, nil)
-        }
-        
-    }
     func getBoundaries(boroughName: String, whichIndex: Int, completion: @escaping (Borough?, Error?) -> ()) {
         
         //https://nominatim.openstreetmap.org/search.php?q=queens%2C+New+York+&polygon_geojson=1&viewbox=
@@ -108,36 +83,6 @@ class CrimeAPIManager {
                 let nycBorough = Borough(name: boroughName, coordinates: realCoord)
                
                 completion(nycBorough, nil)
-                
-            } else {
-                completion(nil, error)
-            }
-        }
-        task.resume()
-    }
-    
-    func test(completion: @escaping (NSArray?, Error?) -> ()) {
-        
-        //https://nominatim.openstreetmap.org/search.php?q=queens%2C+New+York+&polygon_geojson=1&viewbox=
-        print(boroughName)
-        let url = URL(string: "https://nominatim.openstreetmap.org/search.php?q=Brooklyn+New+York&polygon_geojson=1&format=json")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let task = session.dataTask(with: request) { (data, response, error) in
-            
-            if let data = data {
-                let dataArray = try! JSONSerialization.jsonObject(with: data, options: []) as! NSArray
-                print(dataArray)
-                let dataDictionary = dataArray[0] as! [String: Any]
-                //print("*** \(dataDictionary)")
-                let boundingBox = dataDictionary["boundingbox"] as! NSArray
-                let geoJSON = dataDictionary["geojson"] as! [String: Any]
-                //print( "bounding " ,boundingBox)
-                //print("geojson " ,geoJSON)
-                let coord = geoJSON["coordinates"] as! NSArray
-                //print(coord)
-                let realCoord = coord[0] as! NSArray
-                
-                completion(realCoord, nil)
                 
             } else {
                 completion(nil, error)
