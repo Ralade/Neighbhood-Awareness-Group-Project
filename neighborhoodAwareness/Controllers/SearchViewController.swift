@@ -20,7 +20,6 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("in search vc")
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
     }
     
