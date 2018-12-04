@@ -86,24 +86,31 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             switch name {
                 case "Manhattan":
                     polyView.strokeColor = UIColor.green
-                    polyView.fillColor = UIColor.green
+                    //polyView.fillColor = UIColor.green
                 case "Queens":
                     polyView.strokeColor = UIColor.orange
-                    polyView.fillColor = UIColor.orange
+                    //polyView.fillColor = UIColor.orange
                 case "Bronx":
                     polyView.strokeColor = UIColor.red
-                    polyView.fillColor = UIColor.red
+                    //polyView.fillColor = UIColor.red
                 case "Brooklyn":
                     polyView.strokeColor = UIColor.yellow
-                    polyView.fillColor = UIColor.yellow
+                    //polyView.fillColor = UIColor.yellow
                 case "Staten+Island":
                     polyView.strokeColor = UIColor.purple
-                    polyView.fillColor = UIColor.purple
+                    //polyView.fillColor = UIColor.purple
                 default:
                     polyView.strokeColor = UIColor.gray
             }
             
             return polyView
+        } else if overlay is MKCircle {
+            let circleView = MKCircleRenderer(overlay: overlay)
+            circleView.fillColor = UIColor.blue
+            circleView.strokeColor = UIColor.blue
+            circleView.alpha = 0.2
+            
+            return circleView
         }
         // default polygon
         /*if overlay is MKPolygon {
@@ -119,6 +126,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if let location = locations.first {
             let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
+            
+            let circle = MKCircle(center: location.coordinate, radius: 5000)
+            mapView.addOverlay(circle)
+            
             mapView.setRegion(region, animated: false)
         }
     }
