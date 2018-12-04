@@ -115,7 +115,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return MKPolygonRenderer()
     }
     
-    /*func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
@@ -123,7 +123,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    /*func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == CLAuthorizationStatus.authorizedWhenInUse {
             locationManager.startUpdatingLocation()
         }
@@ -180,7 +180,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBAction func goToLocation(_ sender: UIButton) {
         
-        print("go to location")
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+         locationManager.delegate = self
+         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+         locationManager.startUpdatingLocation()
+         }
+        
     }
     
     
