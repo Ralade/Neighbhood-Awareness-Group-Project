@@ -177,6 +177,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    
+    @IBAction func goToLocation(_ sender: UIButton) {
+        
+        print("go to location")
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailCrime" {
             let destinationVC = segue.destination as! DetailsCrimeViewController
